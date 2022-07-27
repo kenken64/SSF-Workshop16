@@ -1,5 +1,7 @@
 package sg.edu.nus.iss.Workshop16.service;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -52,5 +54,16 @@ public class BoardGameRedis implements BoardGameRepo {
     public Set<String> searchKeys(String index) {
         String pattern = "*%s*".formatted(index);
         return redisTemplate.keys(pattern);
+    }
+
+    public Mastermind[] getAllMasterMind() {
+        Set<String> allMastermindKeys = redisTemplate.keys("*");
+        List<Mastermind> mArr = new LinkedList<Mastermind>();
+        for (String mastermindKey : allMastermindKeys) {
+            Mastermind result = (Mastermind) redisTemplate.opsForValue().get(mastermindKey);
+            mArr.add(result);
+        }
+
+        return mArr.toArray(new Mastermind[mArr.size()]);
     }
 }

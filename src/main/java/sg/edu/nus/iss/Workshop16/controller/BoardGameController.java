@@ -29,6 +29,7 @@ public class BoardGameController {
     @PostMapping
     public ResponseEntity<Mastermind> createBoardGame(@RequestBody Mastermind ms) {
         logger.info(" " + ms.getName());
+        // logger.info(" " + ms.getPieces().getDecodingBoard().getTotalCount());
         int x = service.save(ms);
         if (x > 0)
             ms.setInsertCount(x);
@@ -41,9 +42,15 @@ public class BoardGameController {
         return ResponseEntity.ok(m);
     }
 
+    @GetMapping(path = "/list", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Mastermind[]> getAllBoardGame() {
+        Mastermind[] mArr = service.getAllMasterMind();
+        return ResponseEntity.ok(mArr);
+    }
+
     @PutMapping(path = "/{msId}")
     public ResponseEntity<Mastermind> updateGameBoard(@RequestBody Mastermind ms,
-        @PathVariable String msId) {
+            @PathVariable String msId) {
         int mResult = service.update(ms);
         if (mResult > 0)
             ms.setUpdateCount(mResult);

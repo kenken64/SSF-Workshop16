@@ -4,11 +4,11 @@ content-type: application/json
 {
     "name": "Mastermind",
     "pieces": {
-        "decoding_board": {
-            "total_count": 1
+        "decodingBoard": {
+            "totalCount": 1
         },
         "pegs": {
-            "total_count": 102,
+            "totalCount": 102,
             "types": [
                 {
                     "type": "code",
@@ -16,12 +16,12 @@ content-type: application/json
                 },
                 {
                     "type": "key",
-                    "count": 30
+                    "count": 31
                 }
             ]
         },
         "rulebook": {
-            "total_count": 1,
+            "totalCount": 1,
             "file": "rulebook-ultimate-mastermind.pdf"
         }
     }
@@ -32,38 +32,44 @@ GET http://localhost:8080/board-game/633f2a8e HTTP/1.1
 Content-Type: application/json
 
 ###
-PUT http://localhost:8080/board-game/633f2a8e HTTP/1.1
+PUT http://localhost:8080/board-game/861015ed HTTP/1.1
 content-type: application/json
 
 {
-  "name": "Mastermind",
-  "pieces": {
-    "decodingBoard": null,
-    "pegs": {
-      "totalCount": 0,
-      "types": [
-        {
-          "type": "code",
-          "count": 75
+    "name": "Mastermind",
+    "pieces": {
+        "decodingBoard": {
+            "totalCount": 2
         },
-        {
-          "type": "key",
-          "count": 32
+        "pegs": {
+            "totalCount": 103,
+            "types": [
+                {
+                    "type": "code",
+                    "count": 100
+                },
+                {
+                    "type": "key",
+                    "count": 200
+                }
+            ]
+        },
+        "rulebook": {
+            "totalCount": 3,
+            "file": "rulebook-ultimate-mastermind.pdf"
         }
-      ]
     },
-    "rulebook": {
-      "totalCount": 0,
-      "file": "rulebook-ultimate-mastermind.pdf"
-    }
-  },
-  "id": "254965a2",
-  "insertCount": 0,
-  "updateCount": 0,
-  "upsert": true
+    "id": "861015ed",
+    "insertCount": 0,
+    "updateCount": 0,
+    "upsert": false
 }
 
 ###
 
 GET http://localhost:8080/board-game/d4d4e2b1 HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:8080/board-game/list HTTP/1.1
 content-type: application/json
