@@ -42,7 +42,8 @@ public class BoardGameController {
     }
 
     @PutMapping(path = "/{msId}")
-    public ResponseEntity<Mastermind> updateGameBoard(@RequestBody Mastermind ms) {
+    public ResponseEntity<Mastermind> updateGameBoard(@RequestBody Mastermind ms,
+        @PathVariable String msId) {
         int mResult = service.update(ms);
         if (mResult > 0)
             ms.setUpdateCount(mResult);
