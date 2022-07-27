@@ -28,11 +28,11 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:8080/board-game/254965a2 HTTP/1.1
-content-type: application/json
+GET http://localhost:8080/board-game/633f2a8e HTTP/1.1
+Content-Type: application/json
 
 ###
-PUT http://localhost:8080/board-game/254965a2 HTTP/1.1
+PUT http://localhost:8080/board-game/633f2a8e HTTP/1.1
 content-type: application/json
 
 {
